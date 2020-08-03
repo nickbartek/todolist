@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<p style="text-align: center;"></p>
+<p style="text-align: center;">Please enter how much money you need<input type="text" id="name" /><br /><br /> Please enter task to do <input type="text" id="numb" /></p>
+<p style="text-align: center;"><button onclick="myfun()">add new task</button><br /><br /></p>
+<h1 style="text-align: center;">my to do list</h1>
+<p>
+<script>var n=0;
+        var arr=[];
+        function todo(id, description,num){
+           
+            this.id =id;
+            this.description =description; 
+            this.num =num;
+         } 
+        function myfun(){ 
+
+            
+            n++
+             var name= document.getElementById("name").value;  //first
+            var numb= document.getElementById("numb").value;        //secund
+            var newitem= new todo(name,numb,n)
+            
+              arr.push(newitem)
+        addListItem(newitem)
+        }
+
+
+            function addListItem (obj) { 
+            var html,newHtml
+
+          //  html = '<div class="item clearfix"> %id% <div class="item__description">%description% </div><button onclick="ctrldeleteListItem(%id%)" id=%id% >remove this task</button></div>';
+         //   html = '<div> %id% <div>%description% </div><button id="%id%"  onclick="ctrldeleteListItem(%id%)">remove </button></div>';
+          //  html = '<div> %id% <button id="%num%"  onclick="ctrldeleteListItem(%num%)">remove </button %num% ></div>';
+                html = '<div> %id% %description% <button id="%num%"  onclick="ctrldeleteListItem(%num%)">remove </button %num% ></div>';
+
+        newHtml = html.replace('%id%', obj.id);
+        newHtml = newHtml.replace('%id%', obj.id);//first
+        newHtml = newHtml.replace('%id%', obj.id);
+        newHtml = newHtml.replace('%id%', obj.id);
+        newHtml = newHtml.replace('%num%', obj.num);
+        newHtml = newHtml.replace('%num%', obj.num);
+        newHtml = newHtml.replace('%num%', obj.num);
+
+        newHtml = newHtml.replace('%description%', obj.description);
+       console.log("newhtml",newHtml)
+        document.querySelector('h1').insertAdjacentHTML('beforeend', newHtml);
+
+ }
+     
+
+        function ctrldeleteListItem(n) {
+        var el =document.getElementById(n)
+        console.log("to jest el",el,"elem")
+        el.parentNode.remove();
+           
+            
+}
+
+        
+
+    </script>
+</body>
+</html>
